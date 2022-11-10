@@ -9,6 +9,17 @@ body {
     background: linear-gradient(to right, #ffefba, #ffffff); 
     padding: clamp(20px, 5vw, 50px) 20px 10px;
 }
+.croix{
+    width:10px;
+    height:10px;
+    position: absolute;
+    right: 0px
+}
+.croix:hover{
+    width: 25px;
+    height: 25px;
+    transition: .5s;
+}
 
 h1 {
     font-size: 45px;

@@ -43,25 +43,45 @@ let suppLastList = ()=>{
         result = {nom: nm, valeur: val}
         enregTab(tab, result);
     }
+   
 
     createList = (data)=>{
         let element = document.createElement('li');
         element.textContent = `nom: ${data.nom}    valeur: ${data.valeur}`;
         element.style.listStyle = 'none';
         liste.appendChild(element);
+        let supp = document.createElement('button');
+        supp.textContent = "X";
+        supp.classList.add('croix')
+        supp.setAttribute('id', data.nom);
+        element.appendChild(supp)
+        supp.addEventListener('click', ()=>{
+            let resultat = tab.filter((obj)=> {
+                if(obj.nom === supp.id){
+                    console.log(obj.nom, supp.id)
+                    return false
+               }
+               else{
+                   return true
+               }
+        })
+            element.remove()
+            localStorage.setItem('loc', JSON.stringify(resultat));
+            console.log(resultat)
+        });
     }
 
     let stautusManager = ()=>{
         if(!listeStatus){
            listeStatus = true;
-           liste.style.display = "block";
+           liste.style.display = "flex";
            if(!done){
            afficher();
            }
         }
         else{
            listeStatus = false
-           liste.style.display = "none";
+           liste.style.display = "flex";
         }
     }
 
@@ -77,3 +97,4 @@ let suppLastList = ()=>{
 
     formulaire.addEventListener("submit", enregistrer);
     bouttonAfficher.addEventListener('click', stautusManager)
+    
