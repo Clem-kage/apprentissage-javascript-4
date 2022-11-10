@@ -75,13 +75,15 @@ let suppLastList = ()=>{
         if(!listeStatus){
            listeStatus = true;
            liste.style.display = "flex";
+           console.log(listeStatus)
            if(!done){
            afficher();
            }
         }
         else{
            listeStatus = false
-           liste.style.display = "flex";
+           liste.style.display = "none";
+           console.log(listeStatus)
         }
     }
 
